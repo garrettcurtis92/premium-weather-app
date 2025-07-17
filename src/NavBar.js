@@ -1,14 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import './NavBar.css'; // Optional if you want to style it separately
+import { Link } from 'react-router-dom';
+import './NavBar.css';
 
 function NavBar() {
   return (
-    <nav className="nav">
-      <NavLink to="/" className="nav-link">Home</NavLink>
-      <NavLink to="/about" className="nav-link">About</NavLink>
-      {/* Example for Location page — you’ll use a search input later */}
-      {/* <NavLink to="/location/Seattle" className="nav-link">Seattle</NavLink> */}
+    <nav>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/forecast">Forecast</Link></li>
+        <li><Link to="/about">About</Link></li>
+        <li><Link to="/settings">Settings</Link></li>
+      </ul>
     </nav>
   );
 }

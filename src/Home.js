@@ -29,7 +29,7 @@ function Home() {
     if (coords.lat && coords.lon) {
       // Replace with your OpenWeatherMap API key
       const API_KEY = 'a5f1488e6f82dc5a47a0c73f5e8f439d';
-      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${API_KEY}&units=metric`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${API_KEY}&units=imperial`;
 
       fetch(url)
         .then((response) => response.json())
@@ -52,7 +52,7 @@ function Home() {
       {weatherData ? (
         <div>
           <h2>{weatherData.name}</h2>
-          <p>Temp: {weatherData.main.temp} °C</p>
+          <p>Temp: {weatherData.main.temp} °F</p>
           <p>Condition: {weatherData.weather[0].main}</p>
           {/* Add more details later! */}
         </div>
