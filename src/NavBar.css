@@ -3,7 +3,10 @@ html {
 }
 
 body {
-  background-image: url("https://images.unsplash.com/photo-1751220170218-e57d53bd4aa8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NTE1NjQ0MjR8&ixlib=rb-4.1.0&q=80&w=1800");
+background-image: url('./assets/clearskyimage.jpeg');
+
+
+
   background-attachment: fixed;
 }
 
@@ -27,7 +30,10 @@ nav {
   &::before {
     z-index: -2;
     background-attachment: fixed;
-    background-image: url("https://images.unsplash.com/photo-1751220170218-e57d53bd4aa8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NTE1NjQ0MjR8&ixlib=rb-4.1.0&q=80&w=1800");
+  background-image: url('./assets/clearskyimage.jpeg');
+;
+
+
   }
 
   &::after {
