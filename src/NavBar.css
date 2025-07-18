@@ -12,7 +12,16 @@ background-image: url('./assets/clearskyimage.jpeg');
 
 }
 
+@keyframes fadeInNav {
+  to {
+    opacity: 1;
+  }
+}
+
 nav {
+
+  animation: fadeInNav 0.8s ease-in-out forwards;
+  opacity: 0; /* Start invisible */
   width: fit-content;
   margin: 3rem auto;
 

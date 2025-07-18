@@ -44,22 +44,21 @@ function Home() {
         });
     }
   }, [coords]);
+return (
+  <div className="widget-container">
+    {error && <p>{error}</p>}
 
-  return (
-    <div>
-    
-      {error && <p>{error}</p>}
-      {weatherData ? (
-        <WeatherWidget
-          temperature={weatherData.main.temp}
-          location={weatherData.name}
-          condition={weatherData.weather[0].main}
-        />
-      ) : (
-        <p>Loading weather data...</p>
-      )}
-    </div>
-  );
+    {weatherData ? (
+      <WeatherWidget
+        location={weatherData.name}
+        temperature={weatherData.main.temp}
+        condition={weatherData.weather[0].main}
+      />
+    ) : (
+      <p>Loading weather data...</p>
+    )}
+  </div>
+);
 }
 
 export default Home;

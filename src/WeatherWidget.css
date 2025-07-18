@@ -1,17 +1,39 @@
-/* WeatherWidget.css */
-.weather-widget {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.widget-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 
-  background-color: rgba(255, 255, 255, 0.1); /* transparent effect */
+  height: 100vh;
+}/* WeatherWidget.css */
+
+.weather-widget {
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   border-radius: 16px;
   padding: 2rem;
   text-align: center;
   color: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  max-width: 90vw;
-  min-width: 300px;
+  max-width: 300px;
+  margin: 5rem auto;
+  transition: transform 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  will-change: opacity;
+};
+
+@media (max-height: 700px) {
+  .widget-container {
+    padding-top: 2rem;
+    align-items: flex-start;
+  }
+}
+
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
