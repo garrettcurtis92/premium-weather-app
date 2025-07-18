@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import WeatherWidget from './WeatherWidget';
 
 function Home() {
   const [coords, setCoords] = useState({ lat: null, lon: null });
@@ -46,16 +47,14 @@ function Home() {
 
   return (
     <div>
-      <h1>Home Page</h1>
+    
       {error && <p>{error}</p>}
-
       {weatherData ? (
-        <div>
-          <h2>{weatherData.name}</h2>
-          <p>Temp: {weatherData.main.temp} °F</p>
-          <p>Condition: {weatherData.weather[0].main}</p>
-          {/* Add more details later! */}
-        </div>
+        <WeatherWidget
+          temperature={weatherData.main.temp}
+          location={weatherData.name}
+          condition={weatherData.weather[0].main}
+        />
       ) : (
         <p>Loading weather data...</p>
       )}
