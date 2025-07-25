@@ -88,3 +88,67 @@
   animation: fadeInUp 0.6s ease-out forwards;
   will-change: opacity;
 }
+
+.tgl {
+  display: none;
+}
+.tgl, .tgl:after, .tgl:before, .tgl *, .tgl *:after, .tgl *:before {
+  box-sizing: border-box;
+}
+.tgl-ios + .tgl-btn {
+  background: #fbfbfb;
+  border-radius: 2em;
+  padding: 2px;
+  transition: all .4s ease;
+  border: 1px solid #e8eae9;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+  position: relative;
+  cursor: pointer;
+}
+.tgl-ios + .tgl-btn:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 2em;
+  background: #fbfbfb;
+  transition: left .3s cubic-bezier(0.175,0.885,0.320,1.275);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 4px 0 rgba(0,0,0,.08);
+}
+.tgl-ios:checked + .tgl-btn {
+  background: #86d993;
+}
+.tgl-ios:checked + .tgl-btn:after {
+  left: 26px;
+}
+.toggle-label {
+  margin-left: 1rem;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+/* Add to WeatherWidget.css */
+.toggle-label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 1rem;
+  letter-spacing: 2px;
+  transition: color 0.3s;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  color: #888; /* Default color for inactive */
+}
+
+/* Highlight °F when checked */
+.tgl-ios:checked ~ .toggle-label:last-child {
+  color: #2e8b57;
+}
+
+/* Highlight °C when not checked */
+.tgl-ios:not(:checked) ~ .toggle-label:first-child {
+  color: #0074D9;
+}

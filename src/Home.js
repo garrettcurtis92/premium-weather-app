@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import WeatherWidget from './WeatherWidget';
 
-function Home() {
+function Home({ unit = 'imperial' }) {
   const [coords, setCoords] = useState({ lat: null, lon: null });
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState('');
@@ -26,24 +26,22 @@ function Home() {
     }
   }, []);
 
-  useEffect(() => {
+ useEffect(() => {
     if (coords.lat && coords.lon) {
-      // Replace with your OpenWeatherMap API key
       const API_KEY = 'a5f1488e6f82dc5a47a0c73f5e8f439d';
-      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${API_KEY}&units=imperial`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${API_KEY}&units=${unit}`;
 
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data); // ✅ See it in your console first!
           setWeatherData(data);
         })
         .catch((err) => {
-          console.error(err);
           setError('Failed to fetch weather data.');
         });
     }
-  }, [coords]);
+  }, [coords, unit]);
+
 return (
   <div className="widget-container">
     {error && <p>{error}</p>}
@@ -53,6 +51,7 @@ return (
         location={weatherData.name}
         temperature={weatherData.main.temp}
         condition={weatherData.weather[0].main}
+        unit={unit}
       />
     ) : (
       <p>Loading weather data...</p>
