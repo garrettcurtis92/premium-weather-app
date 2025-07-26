@@ -21,7 +21,7 @@ function About() {
           href="https://github.com/garrettcurtis92"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ fontWeight: 'bold', color: '#2e8b57', textDecoration: 'none' }}
+          style={{ fontWeight: 'bold', color: '#FFFFFF', textDecoration: 'none' }}
         >
           GitHub Profile
         </a>
